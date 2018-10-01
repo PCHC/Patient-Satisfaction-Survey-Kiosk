@@ -25,6 +25,11 @@ class QuestionsController extends Controller
 
     public function store()
     {
+        // Validate the form submission
+        $this->validate(request(), [
+            'question' => 'required'
+        ]);
+
         // Create a new question using the request data
         // Save it to the database
         Question::create(request(['question']));
