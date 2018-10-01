@@ -11,4 +11,9 @@ class Question extends Model
 
     /* Model blacklist: block these fields from being mass-assigned */
     // protected $guarded = [];
+
+    public function responses()
+    {
+        $this->hasMany(Response::class);
+    }
 }
