@@ -13,6 +13,12 @@ class QuestionsController extends Controller
         return view('questions.index', compact('questions'));
     }
 
+    public function all()
+    {
+        $questions = Question::withTrashed()->latest()->get();
+        return view('questions.index', compact('questions'));
+    }
+
     public function show(Question $question)
     {
         return view('questions.show', compact('question'));
@@ -56,5 +62,25 @@ class QuestionsController extends Controller
         $question->save();
 
         return redirect('/questions/' . $question->id );
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Question  $question
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Question $question)
+    {
+        $question->delete();
+
+        return redirect('/questions');
+    }
+
+    public function restore($id)
+    {
+        $question = Question::withTrashed()->find($id)->restore();
+
+        return redirect('/questions');
     }
 }

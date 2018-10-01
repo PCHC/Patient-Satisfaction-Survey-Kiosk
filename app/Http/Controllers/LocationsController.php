@@ -18,6 +18,12 @@ class LocationsController extends Controller
         return view('locations.index', compact('locations'));
     }
 
+    public function all()
+    {
+        $locations = Location::withTrashed()->get();
+        return view('locations.index', compact('locations'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -103,6 +109,15 @@ class LocationsController extends Controller
      */
     public function destroy(Location $location)
     {
-        //
+        $location->delete();
+
+        return redirect('/locations');
+    }
+
+    public function restore($id)
+    {
+        $location = Location::withTrashed()->find($id)->restore();
+
+        return redirect('/locations');
     }
 }

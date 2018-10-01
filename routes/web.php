@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/survey', 'QuestionsController@index');
 
+Route::get('/questions/all', 'QuestionsController@all');
+Route::patch('/questions/{id}/restore', 'QuestionsController@restore');
 Route::resource('/questions', 'QuestionsController');
 
 // Route::get('/questions', 'QuestionsController@index');
@@ -24,6 +26,8 @@ Route::resource('/questions', 'QuestionsController');
 // Route::post('/questions', 'QuestionsController@store');
 // Route::get('/questions/{question}', 'QuestionsController@show');
 
+Route::get('/locations/all', 'LocationsController@all');
+Route::patch('/locations/{id}/restore', 'LocationsController@restore');
 Route::resource('locations', 'LocationsController');
 
 // Route::get('/locations', 'LocationsController@index');
