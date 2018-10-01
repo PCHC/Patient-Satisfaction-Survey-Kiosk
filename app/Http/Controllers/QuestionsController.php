@@ -37,4 +37,24 @@ class QuestionsController extends Controller
         // Then redirect
         return redirect('/survey');
     }
+
+    public function edit(Question $question)
+    {
+        return view('questions.edit', compact('question'));
+    }
+
+    public function update(Request $request, Question $question)
+    {
+       $this->validate($request, [
+            'question' => 'required'
+        ]);
+
+        $question->update([
+            'question' => $request->question
+        ]);
+
+        $question->save();
+
+        return redirect('/questions/' . $question->id );
+    }
 }

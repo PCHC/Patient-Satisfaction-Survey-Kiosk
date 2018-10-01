@@ -14,7 +14,8 @@ class LocationsController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::all();
+        return view('locations.index', compact('locations'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LocationsController extends Controller
      */
     public function create()
     {
-        //
+        return view('locations.create');
     }
 
     /**
@@ -35,7 +36,19 @@ class LocationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the form submission
+        $this->validate($request, [
+            'location' => 'required'
+        ]);
+
+        $location = $request->location;
+
+        // Create a new question using the request data
+        // Save it to the database
+        Location::create(compact('location'));
+
+        // Then redirect
+        return redirect('/locations');
     }
 
     /**
@@ -46,7 +59,7 @@ class LocationsController extends Controller
      */
     public function show(Location $location)
     {
-        //
+        return view('locations.show', compact('location'));
     }
 
     /**
@@ -57,7 +70,7 @@ class LocationsController extends Controller
      */
     public function edit(Location $location)
     {
-        //
+        return view('locations.edit', compact('location'));
     }
 
     /**
@@ -69,7 +82,17 @@ class LocationsController extends Controller
      */
     public function update(Request $request, Location $location)
     {
-        //
+       $this->validate($request, [
+            'location' => 'required'
+        ]);
+
+        $location->update([
+            'location' => $request->location
+        ]);
+
+        $location->save();
+
+        return redirect('/locations/' . $location->id );
     }
 
     /**

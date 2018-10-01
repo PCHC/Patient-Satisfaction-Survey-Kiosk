@@ -17,13 +17,21 @@ Route::get('/', function () {
 
 Route::get('/survey', 'QuestionsController@index');
 
-Route::get('/questions', 'QuestionsController@index');
+Route::resource('/questions', 'QuestionsController');
 
-Route::get('/questions/create', 'QuestionsController@create');
+// Route::get('/questions', 'QuestionsController@index');
+// Route::get('/questions/create', 'QuestionsController@create');
+// Route::post('/questions', 'QuestionsController@store');
+// Route::get('/questions/{question}', 'QuestionsController@show');
 
-Route::post('/questions', 'QuestionsController@store');
+Route::resource('locations', 'LocationsController');
 
-Route::get('/questions/{question}', 'QuestionsController@show');
+// Route::get('/locations', 'LocationsController@index');
+// Route::get('/locations/create', 'LocationsController@create');
+// Route::get('/locations/{location}/edit', 'LocationsController@edit');
+// Route::patch('/locations/{location}', 'LocationsController@update');
+// Route::post('/locations', 'LocationsController@store');
+// Route::get('/locations/{location}', 'LocationsController@show');
 
 /**
  * REST routes:
