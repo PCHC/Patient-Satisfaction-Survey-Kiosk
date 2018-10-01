@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/survey', 'QuestionsController@index');
+Route::get('/survey/{location_id?}', 'ResponsesController@index');
+Route::post('/responses', 'ResponsesController@store');
 
 Route::get('/questions/all', 'QuestionsController@all');
 Route::patch('/questions/{id}/restore', 'QuestionsController@restore');

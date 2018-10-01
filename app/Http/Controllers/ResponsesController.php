@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Response;
+use App\Question;
+use App\Location;
 use Illuminate\Http\Request;
 
 class ResponsesController extends Controller
@@ -12,9 +14,12 @@ class ResponsesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index($location_id = 1)
+    {   
+        $question = Question::inRandomOrder()->first();
+        $location = Location::find($location_id);
+
+        return view('survey.index', compact('question', 'location'));
     }
 
     /**
@@ -35,7 +40,14 @@ class ResponsesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $location_id = $request->location_id;
+        $question_id = $request->question_id;
+        $response = $request->response;
+
+        Response::create(compact('location_id', 'question_id', 'response'));
+
+        // Then redirect
+        return redirect('/survey');
     }
 
     /**
