@@ -24,9 +24,9 @@ class QuestionsController extends Controller
         return view('questions.show', compact('question'));
     }
     
-    public function create()
+    public function create(Question $question)
     {
-        return view('questions.create');
+        return view('questions.create', compact('question'));
     }
 
     public function store()

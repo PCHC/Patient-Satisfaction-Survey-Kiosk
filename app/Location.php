@@ -20,6 +20,6 @@ class Location extends Model
 
     public function responses()
     {
-        $this->hasMany(Response::class);
+        return $this->hasMany(Response::class);
     }
 }
