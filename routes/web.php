@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/survey');
 });
 
 Route::get('/survey/{location_id?}', 'ResponsesController@index');
@@ -49,3 +49,6 @@ Route::resource('locations', 'LocationsController');
  * PATCH /questions/{id}
  * DELETE /questions/{id}
  */
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
