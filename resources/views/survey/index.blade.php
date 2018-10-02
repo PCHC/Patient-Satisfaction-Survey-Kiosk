@@ -1,36 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.survey')
 
-  <!-- CSRF Token -->
-  <meta name="csrf-token" content="{{ csrf_token() }}">
-
-  <title>{{ config('app.name', 'Laravel') }}</title>
-
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
-
-  <!-- Fonts -->
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
-  <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-  <div class="container">
-    <h1>Question</h1>
-    <h2>Welcome to {{$location->location}}</h2>
-    <strong>{{ $question->question }}</strong>
+@section('content')
+<h1>PCHC Patient Satisfaction Survey</h1>
+<div class="card">
+  <div class="card__header">
+    <h5>Welcome to {{$location->location}}</h5>
+  </div>
+  <div class="card__body">
+    <p class="card__question">
+      {{ $question->question }}
+    </p>
     <form action="/responses" method="POST">
       @csrf
       <input type="hidden" name="question_id" value="{{$question->id}}"/>
       <input type="hidden" name="location_id" value="{{$location->id}}"/>
-      <button type="submit" name="response" value="1" class="btn btn-success">Yes</button>
-      <button type="submit" name="response" value="0" class="btn btn-danger">No</button>
+      <div class="card__responses">
+        <button class="btn btn--negative" type="submit" name="response" value="0">
+          <img src="{{ asset('images/survey-frown.png') }}" />
+        </button>
+        <button class="btn btn--positive" type="submit" name="response" value="1">
+          <img src="{{ asset('images/survey-smile.png') }}" />
+        </button>
+      </div>
     </form>
   </div>
-</body>
-</html>
+</div>
+@endsection

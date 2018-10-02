@@ -47,7 +47,13 @@ class ResponsesController extends Controller
         Response::create(compact('location_id', 'question_id', 'response'));
 
         // Then redirect
-        return redirect('/survey/' . $location_id);
+        return redirect('/survey/thanks/' . $location_id);
+    }
+
+    public function thanks($location_id = 1)
+    {
+        $location = Location::find($location_id);
+        return view('survey.thanks', compact('location'));
     }
 
     /**

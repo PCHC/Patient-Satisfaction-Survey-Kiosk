@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/survey/{location_id?}', 'ResponsesController@index');
+Route::get('/survey/thanks/{location_id?}', 'ResponsesController@thanks');
 Route::post('/responses', 'ResponsesController@store');
 
 Route::get('/questions/all', 'QuestionsController@all')->name('questions.all');

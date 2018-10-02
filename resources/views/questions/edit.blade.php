@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header"><h5 class="mb-5">{{ __('Edit Question') }}</h5></div>
+        <div class="card-header"><h5 class="mb-0">{{ __('Edit Question') }}</h5></div>
 
         <div class="card-body">
           @include('layouts.partials.errors')
