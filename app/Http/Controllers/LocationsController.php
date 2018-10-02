@@ -120,6 +120,10 @@ class LocationsController extends Controller
      */
     public function destroy(Location $location)
     {
+        if ($location->id == 1) {
+            return redirect('/locations')->flash('status', 'Cannot disable the default location'); 
+        }
+
         $location->delete();
 
         return redirect('/locations');

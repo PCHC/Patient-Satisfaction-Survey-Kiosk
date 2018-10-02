@@ -54,18 +54,20 @@
                   @endif
                 </td>
                 <td>
-                  @if ($location->trashed())
-                    <form action="/locations/{{$location->id}}/restore" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button class="btn btn-sm btn-success" type="submit">Restore</button>
-                    </form>
-                  @else
-                    <form action="/locations/{{$location->id}}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-sm btn-danger" type="submit">Disable</button>
-                    </form>
+                  @if($location->id > 1)
+                    @if ($location->trashed())
+                      <form action="/locations/{{$location->id}}/restore" method="POST">
+                      @csrf
+                      @method('PATCH')
+                      <button class="btn btn-sm btn-success" type="submit">Restore</button>
+                      </form>
+                    @else
+                      <form action="/locations/{{$location->id}}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button class="btn btn-sm btn-danger" type="submit">Disable</button>
+                      </form>
+                    @endif
                   @endif
                 </td>
               </tr>
