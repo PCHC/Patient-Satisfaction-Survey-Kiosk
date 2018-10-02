@@ -31,7 +31,8 @@ class LocationsController extends Controller
     public function all()
     {
         $locations = Location::withTrashed()->get();
-        return view('locations.index', compact('locations'));
+        $isAll = true;
+        return view('locations.index', compact('locations', 'isAll'));
     }
 
     /**

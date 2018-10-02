@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/survey/{location_id?}', 'ResponsesController@index');
 Route::post('/responses', 'ResponsesController@store');
 
-Route::get('/questions/all', 'QuestionsController@all');
+Route::get('/questions/all', 'QuestionsController@all')->name('questions.all');
 Route::patch('/questions/{id}/restore', 'QuestionsController@restore');
 Route::resource('/questions', 'QuestionsController');
 
@@ -27,7 +27,7 @@ Route::resource('/questions', 'QuestionsController');
 // Route::post('/questions', 'QuestionsController@store');
 // Route::get('/questions/{question}', 'QuestionsController@show');
 
-Route::get('/locations/all', 'LocationsController@all');
+Route::get('/locations/all', 'LocationsController@all')->name('locations.all');
 Route::patch('/locations/{id}/restore', 'LocationsController@restore');
 Route::resource('locations', 'LocationsController');
 

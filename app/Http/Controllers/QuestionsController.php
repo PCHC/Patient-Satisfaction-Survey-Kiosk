@@ -26,7 +26,8 @@ class QuestionsController extends Controller
     public function all()
     {
         $questions = Question::withTrashed()->latest()->get();
-        return view('questions.index', compact('questions'));
+        $isAll = true;
+        return view('questions.index', compact('questions', 'isAll'));
     }
 
     public function show(Question $question)
@@ -51,7 +52,7 @@ class QuestionsController extends Controller
         Question::create(request(['question']));
 
         // Then redirect
-        return redirect('/survey');
+        return redirect('/questions');
     }
 
     public function edit(Question $question)
