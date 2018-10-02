@@ -29,9 +29,9 @@ class LocationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Location $location)
     {
-        return view('locations.create');
+        return view('locations.create', compact('location'));
     }
 
     /**
