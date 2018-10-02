@@ -1,4 +1,4 @@
-@extends('layouts.survey')
+@extends('layouts.admin')
 
 @section('content')
   <h1>Edit Location</h1>
