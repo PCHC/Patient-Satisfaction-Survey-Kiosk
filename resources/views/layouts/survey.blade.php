@@ -11,7 +11,7 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Styles -->
-  <link href="{{ asset('css/survey.css') }}" rel="stylesheet">
+  <link href="{{ mix('/css/survey.css') }}" rel="stylesheet">
 </head>
 <body>
   <div class="container">
