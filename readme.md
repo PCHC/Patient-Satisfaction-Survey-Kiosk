@@ -73,6 +73,24 @@ Out of the box, Laravel supports four databases:
 
 Database configuration can be found in `config/database.php`. Set database variables like connection settings, users, and passwords in `.env`.
 
+### Database Seeding
+
+To set the application up with an initial admin user, you will need to "seed" the database.
+
+Three environment variables can be found in `.env`:
+
+```
+ADMIN_USER_NAME
+ADMIN_USER_EMAIL
+ADMIN_USER_PASSWORD
+```
+
+Set these variables and then run:
+
+```bash
+$ php artisan db:seed
+```
+
 ## Development
 
 Documentation for Laravel 5.7 can be found at https://laravel.com/docs/5.7/
