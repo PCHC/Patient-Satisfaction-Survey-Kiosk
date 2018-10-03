@@ -30,11 +30,6 @@ class QuestionsController extends Controller
         $isAll = true;
         return view('questions.index', compact('questions', 'isAll'));
     }
-
-    public function show(Question $question)
-    {
-        return view('questions.show', compact('question'));
-    }
     
     public function create(Question $question)
     {

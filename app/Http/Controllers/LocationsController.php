@@ -70,18 +70,6 @@ class LocationsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Location  $location
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Location $location)
-    {
-        $questions = Question::withTrashed()->get();
-        return view('locations.show', compact('location', 'questions'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Location  $location
