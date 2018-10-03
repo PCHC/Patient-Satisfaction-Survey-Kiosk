@@ -15,11 +15,11 @@
       <input type="hidden" name="question_id" value="{{$question->id}}"/>
       <input type="hidden" name="location_id" value="{{$location->id}}"/>
       <div class="card__responses">
-        <button class="btn btn--negative" type="submit" name="response" value="0">
-          <img src="{{ asset('images/survey-frown.png') }}" />
-        </button>
         <button class="btn btn--positive" type="submit" name="response" value="1">
           <img src="{{ asset('images/survey-smile.png') }}" />
+        </button>
+        <button class="btn btn--negative" type="submit" name="response" value="0">
+          <img src="{{ asset('images/survey-frown.png') }}" />
         </button>
       </div>
     </form>
