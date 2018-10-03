@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Location;
 
 class QuestionsController extends Controller
 {
@@ -57,6 +58,7 @@ class QuestionsController extends Controller
 
     public function edit(Question $question)
     {
+        $locations = Location::withTrashed()->get();
         return view('questions.edit', compact('question', 'locations'));
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Location;
+use App\Question;
 use Illuminate\Http\Request;
 
 class LocationsController extends Controller
@@ -76,7 +77,8 @@ class LocationsController extends Controller
      */
     public function show(Location $location)
     {
-        return view('locations.show', compact('location'));
+        $questions = Question::withTrashed()->get();
+        return view('locations.show', compact('location', 'questions'));
     }
 
     /**
@@ -87,7 +89,8 @@ class LocationsController extends Controller
      */
     public function edit(Location $location)
     {
-        return view('locations.edit', compact('location'));
+        $questions = Question::withTrashed()->get();
+        return view('locations.edit', compact('location', 'questions'));
     }
 
     /**
