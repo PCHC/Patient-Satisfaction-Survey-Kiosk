@@ -23,7 +23,11 @@ The Laravel framework has a few system requirements:
 
  ### Installing Laravel
 
-[Download](https://github.com/PCHC/Patient-Satisfaction-Survey-Kiosk/archive/master.zip) and unpack or clone with git using `git clone https://github.com/PCHC/Patient-Satisfaction-Survey-Kiosk.git`.
+[Download](https://github.com/PCHC/Patient-Satisfaction-Survey-Kiosk/archive/master.zip) and unpack or clone with git: 
+
+```bash
+$ git clone https://github.com/PCHC/Patient-Satisfaction-Survey-Kiosk.git
+```
 
 Laravel utilizes [Composer](https://getcomposer.org/) to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
 
@@ -72,6 +76,12 @@ Out of the box, Laravel supports four databases:
  - SQL Server
 
 Database configuration can be found in `config/database.php`. Set database variables like connection settings, users, and passwords in `.env`.
+
+To create the necessary database tables, run:
+
+```bash
+$ php artisan migrate
+```
 
 ### Database Seeding
 
