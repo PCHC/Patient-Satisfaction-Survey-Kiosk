@@ -69,6 +69,8 @@ h1 {
   &__responses {
     text-align: center;
     overflow: auto;
+    width: 85%;
+    margin: 0 auto;
   }
 }
 
@@ -78,7 +80,7 @@ h1 {
   overflow: visible;
   text-transform: none;
   -webkit-appearance: button;
-  display: block;
+  display: inline-block;
   text-align: center;
   white-space: nowrap;
   user-select: none;
@@ -98,6 +100,7 @@ h1 {
   }
 
   img {
+    width: 125px;
     max-width: 100%;
   }
 
